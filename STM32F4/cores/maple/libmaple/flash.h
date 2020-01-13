@@ -52,11 +52,7 @@ typedef struct flash_reg_map {
 } flash_reg_map;
 
 /** Flash register map base pointer */
-<<<<<<< HEAD
-#define FLASH_BASE                     ((struct flash_reg_map*)0x40023C00)
-=======
 #define FLASH                          ((struct flash_reg_map*)0x40023C00)
->>>>>>> 7c621b234bb091eeba619f5282d678a12f57e320
 
 // taken from CMSIS
 #define UID_BASE         0x1FFF7A10U // Unique device ID register base address
@@ -91,30 +87,6 @@ typedef struct flash_reg_map {
 #define FLASH_ACR_LATENCY_14WS         0x0000000EU
 #define FLASH_ACR_LATENCY_15WS         0x0000000FU
 
-<<<<<<< HEAD
-
-#define FLASH_ACR_PRFTEN_Pos           (8U)
-#define FLASH_ACR_PRFTEN               BIT(FLASH_ACR_PRFTEN_Pos)
-#define FLASH_ACR_ICEN_Pos             (9U)
-#define FLASH_ACR_ICEN                 BIT(FLASH_ACR_ICEN_Pos)
-#define FLASH_ACR_DCEN_Pos             (10U)
-#define FLASH_ACR_DCEN                 BIT(FLASH_ACR_DCEN_Pos)
-#define FLASH_ACR_ICRST_Pos            (11U)
-#define FLASH_ACR_ICRST                BIT(FLASH_ACR_ICRST_Pos)
-#define FLASH_ACR_DCRST_Pos            (12U)
-#define FLASH_ACR_DCRST                bit(FLASH_ACR_DCRST_Pos)
-
-/* Flash KEYR */
-
-#define FLASH_KEYR_KEY1                0x45670123
-#define FLASH_KEYR_KEY2                0xCDEF89AB
-
-/* FLASH_OPTKEYR */
-
-#define FLASH_OPTKEYR_KEY1             0x08192A3B
-#define FLASH_OPTKEYR_KEY2             0x4C5D6E7F
-=======
->>>>>>> 7c621b234bb091eeba619f5282d678a12f57e320
 
 #define FLASH_ACR_PRFTEN_Pos           (8U)
 #define FLASH_ACR_PRFTEN               BIT(FLASH_ACR_PRFTEN_Pos)
@@ -137,11 +109,8 @@ typedef struct flash_reg_map {
 #define FLASH_OPTKEYR_KEY1             0x08192A3B
 #define FLASH_OPTKEYR_KEY2             0x4C5D6E7F
 
-<<<<<<< HEAD
-=======
 /* Status register */
 
->>>>>>> 7c621b234bb091eeba619f5282d678a12f57e320
 #define FLASH_SR_EOP_Pos               (0U)
 #define FLASH_SR_EOP                   BIT(FLASH_SR_EOP_Pos)
 #define FLASH_SR_SOP_Pos               (1U)
@@ -255,11 +224,6 @@ typedef struct flash_reg_map {
  * Setup routines
  */
 
-<<<<<<< HEAD
-void flash_enable_ART(void);
-void flash_disable_ART(void);
-void flash_set_latency(uint32 wait_states);
-=======
 // Turn on the hardware 'ART accelerator' i.e. prefetch + data & instruction cache
 static inline void flash_init(uint32 acr_latency) {
 	FLASH->ACR = (FLASH_ACR_PRFTEN | FLASH_ACR_ICEN | FLASH_ACR_DCEN) | acr_latency;
@@ -289,7 +253,6 @@ static inline void flash_set_latency(uint32 wait_states) {
     FLASH->ACR = val | wait_states;
 }
 
->>>>>>> 7c621b234bb091eeba619f5282d678a12f57e320
 
 #ifdef __cplusplus
 }
